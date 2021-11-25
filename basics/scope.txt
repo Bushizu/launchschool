@@ -1,0 +1,18 @@
+The reason is because the for...do/end code did not create a new inner scope, 
+since for is part of Ruby language and not a method invocation. When we use 
+each, times and other method invocations, followed by {} or do/end, that's 
+when a new block is created.
+
+arr = [1, 2, 3]
+
+for i in arr do
+  a = 5      # a is initialized here
+end
+
+puts a       # it is accessible here because for..end 
+             # doesnt create a new scope its ruby language
+
+If you see .times .each do...end then a new scope gets created
+
+N.B Nello stesso tempo e possibile modificare una var creata outsite of the block
+ma non e posible invocare una var creata all-interno di un block al di fuori dello stesso
